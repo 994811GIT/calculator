@@ -5,5 +5,7 @@ services:
     image: venkynagidi/two:mydockerimage
     ports:
       - "3000:3000"
+    deploy:
+      replicas: 3
     
       
