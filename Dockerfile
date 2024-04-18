@@ -1,7 +1,10 @@
-FROM node:16
+FROM node:16-alpine As base
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
 EXPOSE 3000
-CMD ["npm", "start"]
+FROM base AS final
+RUN npm install --production
+COPY . .
+CMD ["node", "index.js"]
