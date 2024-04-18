@@ -1,0 +1,14 @@
+---
+version: '3'
+services:
+  web:
+    image: venkynagidi/two:mydockerimage
+    ports:
+      - "8081:8081"
+    deploy:
+      replicas: 3
+      update_config:
+        parallelism: 1
+        delay: 10s
+      restart_policy:
+        condition: on-failure
