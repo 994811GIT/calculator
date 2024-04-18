@@ -7,4 +7,4 @@ EXPOSE 3000
 FROM base AS final
 RUN npm install --production
 COPY . .
-CMD ["npm", "install"]
+CMD ["npm", "start"]
