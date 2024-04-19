@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  nginx-proxy:
+    volumes:
+      - ./vhost:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
+    labels:
+      - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
+
+  letsencrypt:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    restart: always
+    volumes:
+      - ./certs:/etc/nginx/certs:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./vhost:/etc/nginx/vhost.d
+      - ./html:/usr/share/nginx/html
