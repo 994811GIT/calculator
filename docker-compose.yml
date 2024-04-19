@@ -4,8 +4,13 @@ services:
   web:
     image: venkynagidi/two:mydockerimage
     ports:
-      - "3000:3000"
+      - "3000:80"
     deploy:
       replicas: 3
+      update_config:
+        parallelism: 2
+        delay: 10s
+      restart_policy:
+        condition: on-failure
     
       
