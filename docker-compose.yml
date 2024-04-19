@@ -17,8 +17,5 @@ services:
         delay: 10s
       restart_policy:
         condition: on-failure
-  networks:
-    default:
-      external:
-        name: nginx-proxy  
+  
       
