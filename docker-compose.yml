@@ -5,11 +5,6 @@ services:
     image: venkynagidi/two:mydockerimage
     ports:
       - "3000:80"
-      - "443:443"
-    volumes:
-      - ./certs:/etc/nginx/certs:ro
-      - ./var/run/docker.sock:/tmp/docker.sock:ro
-    restart: unless-stopped
     deploy:
       replicas: 3
       update_config:
