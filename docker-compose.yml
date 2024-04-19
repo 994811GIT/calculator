@@ -1,5 +1,5 @@
 ---
-version: '3.1'
+version: '3'
 services:
   web-proxy:
     image: venkynagidi/two:mydockerimage
